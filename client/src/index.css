@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-background font-sans text-foreground antialiased;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.25) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.22);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@layer components {
+  .app-bg {
+    background-image:
+      radial-gradient(circle at 14% -8%, rgba(139, 92, 246, 0.14), transparent 32%),
+      radial-gradient(circle at 88% 0%, rgba(34, 211, 238, 0.07), transparent 28%);
+  }
+
+  .surface {
+    @apply rounded-2xl border border-white/[0.06] bg-content1/80 shadow-card backdrop-blur-xl;
+  }
+
+  .surface-soft {
+    @apply rounded-2xl border border-white/[0.05] bg-content1/55 backdrop-blur-md;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.16em] text-default-500;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-violet-400 via-fuchsia-400 to-cyan-300 bg-clip-text text-transparent;
+  }
+
+  .hairline {
+    @apply border-t border-white/[0.06];
+  }
+}
+
+.page-enter {
+  animation: page-enter 260ms ease-out both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.recharts-default-tooltip {
+  border-radius: 14px !important;
+}
